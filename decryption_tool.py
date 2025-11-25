@@ -1,7 +1,7 @@
 # CAESAR CIPHER DECRYPTION TOOL (Frequency Analysis & Brute Force)
 
-# Global Variable: 26-letter alphabet in order to check or map encrypted messages from user input
-alphabet = "abcdefghijklmnopqrstuvwxyz"
+# Global Constant: 26-letter ALPHABET in order to check or map encrypted messages from user input
+ALPHABET = "abcdefghijklmnopqrstuvwxyz"
 
 # === FUNDAMENTAL FUNCTIONS ===
 def calculate_frequency(alphabet, encrypted_string):
@@ -75,9 +75,9 @@ def brute_force_decryption(alphabet, encrypted_string):
 encrypted_string = input("Enter encrypted message: ")
 
 # Calculate the letter counts
-freq_analysis = calculate_frequency(alphabet, encrypted_string)
+freq_analysis = calculate_frequency(ALPHABET, encrypted_string)
 
-print("Alphabet: ", alphabet)
+print("Alphabet: ", ALPHABET)
 print("Frequency Analysis: \n", freq_analysis)
 
 print("Encrypted String: ", encrypted_string)
@@ -89,17 +89,18 @@ print("Most common letter: ", most_common_letter)
 
 # Calculate the shift which we're assuming it's 'e' since one method of decryption
 # is the most common letter decryption method
-shift = (alphabet.index(most_common_letter) - alphabet.index('e')) % 26
+shift = (ALPHABET.index(most_common_letter) - ALPHABET.index('e')) % 26
 print("Shift: ", shift)
 print()
 
 # Decrypt user string by using the most common letter shift
-decrypted_freq_string = decrypt_one_shift(alphabet, encrypted_string, shift)
+decrypted_freq_string = decrypt_one_shift(ALPHABET, encrypted_string, shift)
 print("***Frequency Analysis Decryption***")
 print("Frequency Decryption: ", decrypted_freq_string)
 print()
 
 # Decrypt user string by brute-force, checking all possible shifts (0-25)
 print("***Brute-Force Decryption***")
-brute_decryptions = brute_force_decryption(alphabet, encrypted_string)
+brute_decryptions = brute_force_decryption(ALPHABET, encrypted_string)
+
 
